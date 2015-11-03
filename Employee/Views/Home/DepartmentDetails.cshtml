@@ -1,0 +1,34 @@
+﻿@model Employee.Models.DepartmentModel
+
+@{
+    ViewBag.Title = "DepartmentDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Department Details</h2>
+
+<div class="jumbotron">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Members)
+        </dt>
+
+        @foreach (var emp in Model.Members)
+        {
+            <dd>
+                @Html.ActionLink(emp, "EmployeeDetails", "Home", new { employeeName = emp }, null)
+
+            </dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Department")
+</p>

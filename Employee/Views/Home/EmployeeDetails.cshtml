@@ -1,0 +1,57 @@
+﻿@model Employee.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "EmployeeDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee Details</h2>
+
+<div class="jumbotron">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.ActionLink(Model.Department, "DepartmentDetails", "Home", new { departmentName = Model.Department }, null)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Room Number")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Boss")
+        </dt>
+
+        <dd>
+            @Html.ActionLink(Model.Manager, "EmployeeDetails", "Home", new { employeeName = Model.Manager }, null)
+        </dd>
+        
+    @if (Model.Name == "Dick")
+            {
+    <dt>
+        @Html.DisplayName("Subordinates")
+    </dt>
+    <dd>
+        @Html.ActionLink("List of Subordinates", "Employee")
+        </dd>
+    }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Employee")
+</p>

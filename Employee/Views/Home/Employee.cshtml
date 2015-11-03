@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Employee</h2>
+<div class="jumbotron">
+    <p>@Html.ActionLink("Tom", "EmployeeDetails", "Home", new { employeeName = "Tom"},null)</p>
+    <p>@Html.ActionLink("Dick", "EmployeeDetails", "Home", new { employeeName = "Dick" }, null)</p>
+    <p>@Html.ActionLink("Harry", "EmployeeDetails", "Home", new { employeeName = "Harry" }, null)</p>
+</div>
+
